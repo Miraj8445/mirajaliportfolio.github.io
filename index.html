@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Miraj Ali — Full-Stack & Mobile App Developer. React Native, React.js, Node.js. Building software that ships, scales & sticks.">
+  <meta name="keywords" content="React Native developer India, mobile app developer, React.js developer, Node.js backend, full stack engineer, Expo developer, hire developer India">
+  <title>Miraj Ali · Full-Stack & Mobile Engineer</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0D0D0D;
+      --bg-card: #161616;
+      --bg-muted: #1A1A1A;
+      --border: rgba(255,255,255,0.08);
+      --border-hover: rgba(255,255,255,0.14);
+      --text-primary: #F0EDE6;
+      --text-secondary: #8A8680;
+      --text-muted: #555250;
+      --accent: #3B82F6;
+      --accent-light: #60A5FA;
+      --accent-subtle: rgba(59,130,246,0.12);
+      --accent-subtle-border: rgba(59,130,246,0.25);
+      --green: #2B9E72;
+      --green-subtle: rgba(43,158,114,0.1);
+      --blue: #3B82F6;
+      --blue-subtle: rgba(59,130,246,0.1);
+      --purple: #8B5CF6;
+      --purple-subtle: rgba(139,92,246,0.1);
+      --red: #EF4444;
+      --red-subtle: rgba(239,68,68,0.1);
+      --orange: #F97316;
+      --orange-subtle: rgba(249,115,22,0.1);
+      --gray: #6B7280;
+      --gray-subtle: rgba(107,114,128,0.1);
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+      --font-display: 'Fraunces', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+      --max-w: 860px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Layout ─── */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    section { padding: 4rem 0; }
+    hr.divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    /* ─── Reusable ─── */
+    .section-label {
+      display: block;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      transition: border-color .2s;
+    }
+    .card:hover { border-color: var(--border-hover); }
+
+    .proj-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 2px solid var(--accent);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      transition: border-color .2s, transform .2s;
+    }
+    .proj-card:hover {
+      border-color: var(--border-hover);
+      border-left-color: var(--accent-light);
+      transform: translateY(-2px);
+    }
+
+    /* Skill category colors */
+    .frontend { border-left: 3px solid var(--blue); }
+    .frontend .tag { background: var(--blue-subtle); color: var(--blue); border-color: rgba(59,130,246,0.2); }
+
+    .mobile { border-left: 3px solid var(--green); }
+    .mobile .tag { background: var(--green-subtle); color: var(--green); border-color: rgba(43,158,114,0.2); }
+
+    .state-data { border-left: 3px solid var(--purple); }
+    .state-data .tag { background: var(--purple-subtle); color: var(--purple); border-color: rgba(139,92,246,0.2); }
+
+    .backend { border-left: 3px solid var(--red); }
+    .backend .tag { background: var(--red-subtle); color: var(--red); border-color: rgba(239,68,68,0.2); }
+
+    .database { border-left: 3px solid var(--orange); }
+    .database .tag { background: var(--orange-subtle); color: var(--orange); border-color: rgba(249,115,22,0.2); }
+
+    .tools { border-left: 3px solid var(--gray); }
+    .tools .tag { background: var(--gray-subtle); color: var(--gray); border-color: rgba(107,114,128,0.2); }
+
+    /* Modern hover effects for skill cards */
+    .skills-grid .card {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+    .skills-grid .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    }
+    .frontend:hover { border-left-color: var(--blue); box-shadow: 0 8px 25px rgba(59,130,246,0.15); }
+    .mobile:hover { border-left-color: var(--green); box-shadow: 0 8px 25px rgba(43,158,114,0.15); }
+    .state-data:hover { border-left-color: var(--purple); box-shadow: 0 8px 25px rgba(139,92,246,0.15); }
+    .backend:hover { border-left-color: var(--red); box-shadow: 0 8px 25px rgba(239,68,68,0.15); }
+    .database:hover { border-left-color: var(--orange); box-shadow: 0 8px 25px rgba(249,115,22,0.15); }
+    .tools:hover { border-left-color: var(--gray); box-shadow: 0 8px 25px rgba(107,114,128,0.15); }
+
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      padding: 3px 9px;
+      border-radius: var(--radius-sm);
+      background: rgba(255,255,255,0.05);
+      color: var(--text-secondary);
+      border: 1px solid var(--border);
+      transition: all 0.2s ease;
+    }
+    .tag:hover {
+      transform: scale(1.05);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid var(--accent-subtle-border);
+      white-space: nowrap;
+    }
+
+    .badge-green {
+      font-size: 11px;
+      font-weight: 500;
+      padding: 3px 10px;
+      border-radius: var(--radius-sm);
+      background: var(--green-subtle);
+      color: var(--green);
+      border: 1px solid rgba(43,158,114,.2);
+      white-space: nowrap;
+    }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+
+    /* ─── Navigation ─── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13,13,13,.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--text-primary);
+      text-decoration: none;
+      letter-spacing: -.01em;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 13px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 400;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--text-primary); }
+    .nav-cta {
+      font-size: 13px;
+      font-weight: 500;
+      padding: 7px 18px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      text-decoration: none;
+      transition: background .2s;
+    }
+    .nav-cta:hover { background: var(--accent-light); }
+
+    /* ─── Hero ─── */
+    #hero {
+      padding: 5rem 0 3.5rem;
+      position: relative;
+    }
+    .hero-available {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--green);
+      background: var(--green-subtle);
+      border: 1px solid rgba(43,158,114,.2);
+      border-radius: 999px;
+      padding: 4px 12px;
+      margin-bottom: 1.5rem;
+    }
+    .hero-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 1; }
+      50% { opacity: .4; }
+    }
+    .hero-h1 {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 52px);
+      font-weight: 500;
+      line-height: 1.15;
+      letter-spacing: -.02em;
+      margin-bottom: 1.25rem;
+      color: var(--text-primary);
+    }
+    .hero-h1 em {
+      font-style: italic;
+      color: var(--accent-light);
+    }
+    .hero-sub {
+      font-size: 16px;
+      color: var(--text-secondary);
+      max-width: 520px;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+    .hero-sub strong { color: var(--text-primary); font-weight: 500; }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+    .btn-primary {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 12px 28px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background .2s, transform .15s;
+    }
+    .btn-primary:hover { background: var(--accent-light); transform: translateY(-1px); }
+    .btn-ghost {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 400;
+      padding: 12px 28px;
+      background: transparent;
+      color: var(--text-primary);
+      border: 1px solid var(--border-hover);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: border-color .2s, background .2s;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,.04); border-color: rgba(255,255,255,.2); }
+
+    /* ─── Stats bar ─── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin: 2rem 0;
+    }
+    .stat {
+      background: var(--bg-muted);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.1rem;
+    }
+    .stat-label { font-size: 12px; color: var(--text-muted); margin-bottom: 4px; }
+    .stat-value { font-size: 20px; font-weight: 500; }
+
+    /* ─── About ─── */
+    .about-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 2.5rem; align-items: start; }
+    .about-cards { display: flex; flex-direction: column; gap: 10px; }
+    .about-card-label { font-size: 11px; color: var(--text-muted); margin-bottom: 3px; }
+    .about-card-value { font-size: 13px; font-weight: 500; }
+
+    /* ─── Skills ─── */
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+
+    /* ─── Projects ─── */
+    .proj-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; flex-wrap: wrap; gap: 8px; }
+    .proj-title { font-size: 16px; font-weight: 500; }
+    .proj-sub { font-size: 12px; color: var(--text-muted); margin-top: 3px; }
+    .proj-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.85; }
+    .proj-small-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+    /* ─── Experience ─── */
+    .timeline { padding-left: 18px; border-left: 1px solid var(--border-hover); }
+    .timeline-dot {
+      position: absolute;
+      left: -24px;
+      top: 5px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    .timeline-date { font-size: 12px; color: var(--text-muted); margin-bottom: 4px; }
+    .timeline-title { font-size: 16px; font-weight: 500; margin-bottom: 3px; }
+    .timeline-co { font-size: 13px; color: var(--text-muted); margin-bottom: 12px; }
+    .timeline-items { display: grid; gap: 0; }
+    .timeline-item {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      padding: 6px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ─── CTA ─── */
+    #contact {
+      text-align: center;
+      padding: 4rem 0 5rem;
+    }
+    .cta-h2 {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 38px);
+      font-weight: 500;
+      line-height: 1.3;
+      letter-spacing: -.015em;
+      margin-bottom: 1rem;
+    }
+    .cta-sub {
+      font-size: 15px;
+      color: var(--text-secondary);
+      max-width: 420px;
+      margin: 0 auto 2rem;
+      line-height: 1.8;
+    }
+    .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .footer-links {
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .footer-link {
+      font-size: 13px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .footer-link:hover { color: var(--accent-light); }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 768px) {
+      .container { padding: 0 1rem; }
+      section { padding: 3rem 0; }
+      #hero { padding: 4rem 0 2rem; }
+      .hero-h1 { font-size: clamp(32px, 8vw, 48px); }
+      .hero-sub { font-size: 14px; }
+      .hero-btns { flex-direction: column; align-items: stretch; }
+      .btn-primary, .btn-ghost { width: 100%; text-align: center; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .skills-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+      .proj-small-grid { grid-template-columns: 1fr; gap: 12px; }
+      .nav-links { display: none; }
+      .nav-cta { font-size: 12px; padding: 6px 16px; }
+    }
+
+    @media (max-width: 480px) {
+      .container { padding: 0 0.75rem; }
+      section { padding: 2rem 0; }
+      #hero { padding: 3rem 0 1.5rem; }
+      .hero-h1 { font-size: clamp(28px, 10vw, 40px); }
+      .hero-sub { font-size: 13px; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .proj-header { flex-direction: column; align-items: flex-start; gap: 6px; }
+      .cta-h2 { font-size: clamp(24px, 6vw, 32px); }
+      .cta-sub { font-size: 14px; }
+      .footer-links { flex-direction: column; gap: 1rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">Miraj Ali<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#experience">Experience</a></li>
+      </ul>
+      <a href="mailto:mirajali@email.com" class="nav-cta">Hire Me</a>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════ -->
+  <div class="container">
+    <section id="hero">
+      <div class="hero-available">
+        <span class="hero-dot"></span>
+        Available for Work.
+      </div>
+
+      <h1 class="hero-h1">
+        Building software that<br>
+        <em>ships, scales &amp; sticks.</em>
+      </h1>
+
+      <p class="hero-sub">
+        I'm <strong>Miraj Ali</strong> — a Full-Stack &amp; Mobile Engineer with 1.5+ years 
+        of shipping production-grade apps across Android, iOS, and web. From React Native 
+        mobile experiences to Node.js APIs, I turn product ideas into working software — fast.
+      </p>
+
+      <div class="hero-btns">
+        <a href="mailto:alimiraj191@gmail.com" class="btn-primary">Hire Me →</a>
+        <a href="#work" class="btn-ghost">View Projects</a>
+      </div>
+    </section>
+  </div>
+
+  <!-- Stats bar -->
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat">
+        <p class="stat-label">Experience</p>
+        <p class="stat-value">1.5+ yrs</p>
+      </div>
+      <div class="stat">
+        <p class="stat-label">Apps Shipped</p>
+        <p class="stat-value">5+ projects</p>
+      </div>
+      <div class="stat">
+        <p class="stat-label">Platforms</p>
+        <p class="stat-value">Web + Mobile</p>
+      </div>
+      <div class="stat">
+        <p class="stat-label">Stack Depth</p>
+        <p class="stat-value">15+ tools</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ═══════════════════════════════════════
+       ABOUT
+  ═══════════════════════════════════════ -->
+  <div class="container">
+    <section id="about">
+      <span class="section-label">About Me</span>
+      <h2 style="font-family:var(--font-display);font-size:28px;font-weight:500;margin-bottom:1.5rem;letter-spacing:-.01em;">Not just a developer. A builder.</h2>
+
+      <div class="about-grid">
+        <div>
+          <p style="color:var(--text-secondary);line-height:1.9;margin-bottom:1rem;">
+            I started coding to solve real problems — and that drive has never changed. Based in India, 
+            I specialize in building end-to-end digital products: mobile apps that feel native on both 
+            Android and iOS, and web platforms that perform at scale.
+          </p>
+          <p style="color:var(--text-secondary);line-height:1.9;margin-bottom:1rem;">
+            My approach is product-first. I obsess over UX and code quality in equal measure — because 
+            software that works well under the hood and feels great to use is the only software worth building.
+          </p>
+          <p style="color:var(--text-secondary);line-height:1.9;">
+            I've shipped across food delivery, e-commerce, vehicle rental, fitness, and hospitality — 
+            each project sharpening my instinct for what actually gets to production. I'm at home in 
+            cross-functional environments, comfortable owning features from design handoff to deployment.
+          </p>
+        </div>
+
+        <div class="about-cards">
+          <div class="card">
+            <p class="about-card-label">Open to</p>
+            <p class="about-card-value">Full-time · Contract · Remote</p>
+          </div>
+          <div class="card">
+            <p class="about-card-label">Location</p>
+            <p class="about-card-value">India — Remote-friendly</p>
+          </div>
+          <div class="card">
+            <p class="about-card-label">Core Expertise</p>
+            <p class="about-card-value">React Native · React.js · Node.js</p>
+          </div>
+          <div class="card">
+            <p class="about-card-label">Secondary Stack</p>
+            <p class="about-card-value">Java · Spring Boot · MongoDB</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ═══════════════════════════════════════
+       SKILLS
+  ═══════════════════════════════════════ -->
+  <div class="container">
+    <section id="skills">
+      <span class="section-label">Technical Skills</span>
+      <h2 style="font-family:var(--font-display);font-size:28px;font-weight:500;margin-bottom:1.5rem;letter-spacing:-.01em;">The full stack, front to back.</h2>
+
+      <div class="skills-grid">
+        <div class="card frontend">
+          <p style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.1em;font-weight:500;margin-bottom:10px;">Frontend</p>
+          <div class="tags" style="margin-top:0;">
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+            <span class="tag">JavaScript ES6+</span>
+            <span class="tag">React.js</span>
+            <span class="tag">Tailwind CSS</span>
+          </div>
+        </div>
+
+        <div class="card mobile">
+          <p style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.1em;font-weight:500;margin-bottom:10px;">Mobile</p>
+          <div class="tags" style="margin-top:0;">
+            <span class="tag">React Native</span>
+            <span class="tag">Expo</span>
+            <span class="tag">Android</span>
+            <span class="tag">iOS</span>
+          </div>
+        </div>
+
+        <div class="card state-data">
+          <p style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.1em;font-weight:500;margin-bottom:10px;">State & Data</p>
+          <div class="tags" style="margin-top:0;">
+            <span class="tag">Redux</span>
+            <span class="tag">Zustand</span>
+            <span class="tag">React Query</span>
+          </div>
+        </div>
+
+        <div class="card backend">
+          <p style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.1em;font-weight:500;margin-bottom:10px;">Backend</p>
+          <div class="tags" style="margin-top:0;">
+            <span class="tag">Node.js</span>
+            <span class="tag">Express.js</span>
+            <span class="tag">Java</span>
+            <span class="tag">Spring Boot</span>
+          </div>
+        </div>
+
+        <div class="card database">
+          <p style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.1em;font-weight:500;margin-bottom:10px;">Database</p>
+          <div class="tags" style="margin-top:0;">
+            <span class="tag">MongoDB</span>
+            <span class="tag">MySQL</span>
+          </div>
+        </div>
+
+        <div class="card tools">
+          <p style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.1em;font-weight:500;margin-bottom:10px;">Tools & Workflow</p>
+          <div class="tags" style="margin-top:0;">
+            <span class="tag">Git</span>
+            <span class="tag">GitHub</span>
+            <span class="tag">Postman</span>
+            <span class="tag">VS Code</span>
+            <span class="tag">REST APIs</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ═══════════════════════════════════════
+       PROJECTS
+  ═══════════════════════════════════════ -->
+  <div class="container">
+    <section id="work">
+      <span class="section-label">Selected Work</span>
+      <h2 style="font-family:var(--font-display);font-size:28px;font-weight:500;margin-bottom:1.5rem;letter-spacing:-.01em;">Products built. Problems solved.</h2>
+
+      <div style="display:grid;gap:16px;">
+
+        <!-- Meato -->
+        <div class="proj-card">
+          <div class="proj-header">
+            <div>
+              <h3 class="proj-title">Meato — Food Delivery App</h3>
+              <p class="proj-sub">Cross-platform Mobile · React Native · Expo · Node.js</p>
+            </div>
+            <span class="badge-green">Mobile Application</span>
+          </div>
+          <p class="proj-desc">
+            A full-featured food delivery platform built for Android and iOS with React Native and Expo. 
+            Implements real-time order tracking, category-based menu browsing, cart management with 
+            modifier support, and a streamlined checkout experience. Offline-resilient state management 
+            via Redux ensures the app remains usable under poor connectivity. Optimized FlatList 
+            rendering handles menus with 100+ items with no perceptible lag on mid-range devices.
+          </p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:14px;align-items:center;">
+            <div style="font-size:12px;color:var(--text-muted);">
+              <span style="color:var(--accent-light);font-weight:500;">↑ Performance</span> · Smooth 60fps scrolling on Android & iOS
+            </div>
+          </div>
+          <div class="tags">
+            <span class="tag">React Native</span>
+            <span class="tag">Expo</span>
+            <span class="tag">Redux</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">MongoDB</span>
+            <span class="tag">Express.js</span>
+            <span class="tag">REST API</span>
+          </div>
+        </div>
+
+        <!-- Vehicle Rental -->
+        <div class="proj-card">
+          <div class="proj-header">
+            <div>
+              <h3 class="proj-title">Vehicle Rental App</h3>
+              <p class="proj-sub">Cross-platform Mobile · React Native · Express.js · MySQL</p>
+            </div>
+            <span class="badge-green">Mobile Application</span>
+          </div>
+          <p class="proj-desc">
+            End-to-end vehicle rental experience: browse inventory, compare options, pick dates, 
+            and confirm bookings. Backed by a custom Express.js API with MySQL handling real-time 
+            availability. A deliberate architecture decision — Zustand over Redux — eliminated 
+            boilerplate and improved navigation responsiveness. React Query manages server state 
+            with automatic background refetch, so availability is always current without manual refresh.
+          </p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:14px;align-items:center;">
+            <div style="font-size:12px;color:var(--text-muted);">
+              <span style="color:var(--accent-light);font-weight:500;">↑ Architecture</span> · Zustand cut state boilerplate by ~40% vs Redux
+            </div>
+          </div>
+          <div class="tags">
+            <span class="tag">React Native</span>
+            <span class="tag">Zustand</span>
+            <span class="tag">React Query</span>
+            <span class="tag">Express.js</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">Node.js</span>
+          </div>
+        </div>
+
+        <!-- Kensole -->
+        <div class="proj-card">
+          <div class="proj-header">
+            <div>
+              <h3 class="proj-title">Kensole — Shoes Wholesale E-commerce Platform</h3>
+              <p class="proj-sub">Mobile Application · React Native · Redux · Node.js · MongoDB</p>
+            </div>
+            <span class="badge-green">Mobile Application</span>
+          </div>
+          <p class="proj-desc">
+            A B2B wholesale e-commerce platform purpose-built for bulk shoe buyers — not adapted from 
+            a retail template. Supports multi-SKU catalog management, tiered pricing by volume, bulk 
+            cart with quantity controls, and order tracking with status updates. React Native + Redux 
+            delivers a native mobile experience across Android and iOS; a Node.js/Express API backed by 
+            MongoDB handles the catalog and order pipeline with flexibility for frequent inventory changes.
+          </p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:14px;align-items:center;">
+            <div style="font-size:12px;color:var(--text-muted);">
+              <span style="color:var(--green);font-weight:500;">↑ Business Impact</span> · Digitized wholesale ordering workflow for a real client
+            </div>
+          </div>
+          <div class="tags">
+            <span class="tag">React Native</span>
+            <span class="tag">Redux</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">Express.js</span>
+            <span class="tag">MongoDB</span>
+            <span class="tag">REST API</span>
+          </div>
+        </div>
+
+        <!-- Gym + Restaurant (2-col) -->
+        <div class="proj-small-grid">
+          <div class="proj-card">
+            <div style="margin-bottom:10px;">
+              <h3 class="proj-title" style="font-size:15px;">Gym Website</h3>
+              <p class="proj-sub">Marketing Site · React.js · Tailwind CSS</p>
+            </div>
+            <p class="proj-desc">
+              High-conversion landing page for a fitness brand. Class schedules, trainer profiles, 
+              pricing tiers, and a sticky membership CTA — all structured for SEO from the ground up. 
+              Mobile-first responsive design with Core Web Vitals in mind.
+            </p>
+            <div class="tags">
+              <span class="tag">React.js</span>
+              <span class="tag">Tailwind CSS</span>
+              <span class="tag">SEO</span>
+              <span class="tag">Responsive</span>
+            </div>
+          </div>
+
+          <div class="proj-card">
+            <div style="margin-bottom:10px;">
+              <h3 class="proj-title" style="font-size:15px;">Restaurant Website</h3>
+              <p class="proj-sub">Marketing Site · HTML5 · CSS3 · JavaScript</p>
+            </div>
+            <p class="proj-desc">
+              Visually rich hospitality site with digital menu, gallery, and reservation flow. 
+              Deliberately zero-framework — intentionally lightweight for fast first-paint on 
+              low-bandwidth connections common in regional markets.
+            </p>
+            <div class="tags">
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Performance</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ═══════════════════════════════════════
+       EXPERIENCE
+  ═══════════════════════════════════════ -->
+  <div class="container">
+    <section id="experience">
+      <span class="section-label">Experience</span>
+      <h2 style="font-family:var(--font-display);font-size:28px;font-weight:500;margin-bottom:1.5rem;letter-spacing:-.01em;">Where I've put the work in.</h2>
+
+      <div class="timeline">
+        <div style="position:relative;margin-bottom:2rem;">
+          <div class="timeline-dot"></div>
+          <p class="timeline-date">2024 – Present</p>
+          <h3 class="timeline-title">Software Engineer & Mobile App Developer</h3>
+          <p class="timeline-co">Independent / Freelance · India</p>
+          <div class="timeline-items">
+            <p class="timeline-item">→ Delivered 5+ production apps across food-tech, logistics, e-commerce, fitness, and hospitality verticals</p>
+            <p class="timeline-item">→ Architected and shipped cross-platform React Native apps targeting both the Google Play Store and Apple App Store</p>
+            <p class="timeline-item">→ Owned the full stack on every project: UI components, REST API design, database schema, and deployment pipeline</p>
+            <p class="timeline-item">→ Introduced Zustand + React Query across projects, replacing Redux patterns to cut boilerplate and improve server-state reliability</p>
+            <p class="timeline-item">→ Built a B2B wholesale e-commerce platform (Kensole) from scratch, shipping a custom backend with tiered pricing and bulk order management</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ═══════════════════════════════════════
+       CONTACT / CTA
+  ═══════════════════════════════════════ -->
+  <div class="container">
+    <section id="contact">
+      <span class="section-label" style="display:block;text-align:center;">Open to Opportunities</span>
+      <h2 class="cta-h2">
+        Let's build something<br>
+        <span style="font-style:italic;color:var(--accent-light);">worth shipping.</span>
+      </h2>
+      <p class="cta-sub">
+        I'm actively seeking full-time roles or project contracts where I can contribute from day one. 
+        If you need a developer who cares about craft — and gets things done — let's talk.
+      </p>
+      <div class="cta-btns">
+        <a href="mailto:alimiraj191@gmail.com" class="btn-primary">Get In Touch →</a>
+        <a href="#work" class="btn-ghost">See My Work</a>
+      </div>
+
+      <div class="footer-links">
+        <!-- <a href="https://github.com/mirajali" target="_blank" rel="noopener" class="footer-link">GitHub</a> -->
+        <a href="https://www.linkedin.com/in/miraj-ali-3a6b9a3a2" target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
+        <a href="mailto:alimiraj191@gmail.com" class="footer-link">alimiraj191@gmail.com</a>
+        <span style="font-size:13px;color:var(--text-muted);">India · Remote-ready</span>
+      </div>
+    </section>
+  </div>
+
+</body>
+</html>
